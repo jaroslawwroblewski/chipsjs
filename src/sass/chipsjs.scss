@@ -1,0 +1,42 @@
+
+// Variable
+$brand-color: #FDC52C;
+$gray-color: #FAFAFA;
+$dark-color: #232323;
+
+
+// Settings
+
+
+// Style
+
+.chipsjs {
+  display: block;
+  background: $gray-color;
+
+  &__ul {
+    width: 100%;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  &__li {
+    display: inline-block;
+
+    a {
+      display: inline-block;
+      padding: 20px 25px;
+      text-decoration: none;
+      color: $dark-color;
+
+      &:hover {
+        color: $brand-color;
+      }
+    }
+  }
+
+  &__ul-nested {
+    display: none;
+  }
+}

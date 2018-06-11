@@ -1,0 +1,165 @@
+/* Helpers */
+
+.u-acc-hide {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    border: 0;
+}
+.u-clear {
+    clear: both;
+}
+
+.u-padding-top-xl {
+    padding-top: 100px;
+}
+
+.u-padding-xl {
+    padding-bottom: 100px;
+}
+
+.container {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+@media (min-width: 768px) {
+    .container {
+        width: 750px;
+    }
+}
+@media (min-width: 992px) {
+    .container {
+        width: 970px;
+    }
+}
+@media (min-width: 1200px) {
+    .container {
+        width: 1170px;
+    }
+}
+
+.u-title-h2 {
+    width: 100%;
+    text-align: center;
+    color: #FDC52C;
+    font-size: 2rem;
+    font-weight: 300;
+    margin-top: 0;
+    margin-bottom: 100px;
+}
+
+
+/* Style */
+
+html,body {
+    font-family: 'Open Sans', sans-serif;
+    background: #FDC52C;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+ul li {
+    display: inline-block;
+}
+
+.chipsjs-theme {
+    position: relative;
+}
+
+header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+header ul {
+    display: block;
+    width: 100%;
+}
+
+header ul li a {
+    display: inline-block;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #ffffff;
+    font-size: 1em;
+    padding: 25px;
+}
+header ul li {
+    float: left;
+}
+header ul li:last-child {
+    float: right;
+}
+
+header .github {
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+}
+
+header .github img {
+    width: 100%;
+    height: auto;
+}
+
+.chipsjs-theme__home,
+.chipsjs-theme__example,
+.chipsjs-theme__documentation{
+    height: 100vh;
+}
+
+.chipsjs-theme__home-content,
+.chipsjs-theme__example-content{
+    position: relative;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.chipsjs-theme__home-content {
+    text-align: center;
+}
+.chipsjs-theme__home-content img {
+    width: 30vw;
+    height: auto;
+}
+
+.chipsjs-theme__home-content-h1 {
+    font-size: 5rem;
+    font-weight: bold;
+    color: #fff;
+    margin-top: 50px;
+    margin-bottom: 25px;
+}
+
+.chipsjs-theme__home-content h2 {
+    font-size: 2rem;
+    font-weight: 300;
+    color: #fff;
+}
+
+
+.chipsjs-theme__example {
+    background: #ffffff;
+}
+
+.chipsjs-theme__documentation {
+    background: #fafafa;
+}
+
+
