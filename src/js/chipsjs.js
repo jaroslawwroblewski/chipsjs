@@ -38,20 +38,21 @@
 
             var showSelectedMenu = function ($element, $title) {
 
-                var menu = $element.clone(),
+                var $body = $('body'),
+                    menu = $element.clone(),
                     title = '<p class="chipsjs__title">' + $title.text() + '</p>';
 
 
-                $('body').find(self.options.menu + ' ' + self.options.container).html('');
-                $('body').find(self.options.menu + ' ' + self.options.container).append(title).append(menu.css('display', 'block'));
-                $('body').find(self.options.wrapper).show();
-                $('body').find(self.options.close).focus();
+                $body.find(self.options.menu + ' ' + self.options.container).html('');
+                $body.find(self.options.menu + ' ' + self.options.container).append(title).append(menu.css('display', 'block'));
+                $body.find(self.options.wrapper).css({display: 'block', opacity: 0}).addClass(self.options.animation);
+                $body.find(self.options.close).focus();
 
             };
 
             var hideSelectedMenu = function () {
                 $('body').find(self.options.menu + ' ' + self.options.container).html('');
-                $('body').find(self.options.wrapper).hide();
+                $('body').find(self.options.wrapper).removeClass(self.options.animation).hide();
                 $(state.currentLink).focus();
             };
 
@@ -117,6 +118,7 @@
 
     $.fn.chipsjs.default = {
         dataType: 'html',
+        animation: 'bounceIn',
         ul: '.chipsjs__ul',
         li: '.chipsjs__li',
         ulNested: '.chipsjs__ul-nested',
