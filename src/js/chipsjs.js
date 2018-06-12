@@ -28,17 +28,22 @@
 
 
             var state = {
-              currentLink: ''
+                currentLink: '',
+                currentTitle: ''
             };
 
             var  redirect = function(url) {
                 window.location.href = url;
             };
 
-            var showSelectedMenu = function ($element) {
+            var showSelectedMenu = function ($element, $title) {
 
-                var clone = $element.clone();
-                $('body').find(self.options.menu + ' ' + self.options.container).html(clone.css('display', 'block'));
+                var menu = $element.clone(),
+                    title = '<p class="chipsjs__title">' + $title.text() + '</p>';
+
+
+                $('body').find(self.options.menu + ' ' + self.options.container).html('');
+                $('body').find(self.options.menu + ' ' + self.options.container).append(title).append(menu.css('display', 'block'));
                 $('body').find(self.options.wrapper).show();
                 $('body').find(self.options.close).focus();
 
@@ -64,7 +69,7 @@
                     state.currentLink = $(this);
 
                     var $selectedMenu = $(this).siblings(self.options.ulNested);
-                    $selectedMenu.length > 0 ? showSelectedMenu($selectedMenu) : redirect($(this).attr('data-href'));
+                    $selectedMenu.length > 0 ? showSelectedMenu($selectedMenu, $(this)) : redirect($(this).attr('data-href'));
 
                 });
             };
@@ -119,6 +124,7 @@
         close: '.chipsjs__close',
         menu: '.chipsjs__menu',
         container: '.container',
+        addTitle: true,
         appendHtml: '<div class="chipsjs__wrapper"><button class="chipsjs__close"><span class="u-acc-hide">Close</span></button><div class="chipsjs__menu"><div class="container"></div></div></div>'
     };
 
