@@ -36,7 +36,9 @@
             };
 
             var showSelectedMenu = function ($element) {
-                $('body').find(self.options.menu + ' ' + self.options.container).html($element.show());
+
+                var clone = $element.clone();
+                $('body').find(self.options.menu + ' ' + self.options.container).html(clone.css('display', 'block'));
                 $('body').find(self.options.wrapper).show();
                 $('body').find(self.options.close).focus();
 

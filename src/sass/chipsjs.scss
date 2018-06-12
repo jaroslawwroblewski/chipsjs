@@ -31,6 +31,10 @@ $white-color: #FFFFFF;
       text-decoration: none;
       color: $dark-color;
 
+      &:hover, &:focus {
+        outline: none !important;
+      }
+
       &:hover {
         color: $brand-color;
       }
