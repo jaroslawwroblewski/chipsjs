@@ -47,8 +47,8 @@
 .u-title-h2 {
     width: 100%;
     text-align: center;
-    color: #FDC52C;
-    font-size: 2rem;
+    color: #232323;
+    font-size: 3rem;
     font-weight: 300;
     margin-top: 0;
     margin-bottom: 100px;
@@ -117,11 +117,13 @@ header .github img {
 }
 
 .chipsjs-theme__home,
+.chipsjs-theme__usage,
 .chipsjs-theme__example,
 .chipsjs-theme__documentation{
     height: 100vh;
 }
 
+.chipsjs-theme__usage-content,
 .chipsjs-theme__home-content,
 .chipsjs-theme__example-content{
     position: relative;
@@ -158,6 +160,7 @@ header .github img {
     background: #ffffff;
 }
 
+.chipsjs-theme__usage,
 .chipsjs-theme__documentation {
     background: #fafafa;
 }

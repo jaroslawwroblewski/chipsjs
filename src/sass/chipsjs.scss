@@ -31,13 +31,16 @@ $white-color: #FFFFFF;
       padding: 20px 25px;
       text-decoration: none;
       color: $dark-color;
+      border-bottom: 2px solid rgba(255,255,255,0);
+      box-sizing: border-box;
+
 
       &:hover, &:focus {
         outline: none !important;
       }
 
       &:hover {
-        color: $brand-color;
+        border-bottom: 2px solid $dark-color;
       }
     }
   }
@@ -90,10 +93,72 @@ $white-color: #FFFFFF;
   }
 
   &__title {
+    position: relative;
+    display: inline-block;
     margin-top: 0;
     margin-bottom: 25px;
     color: $white-color;
     font-size: 2rem;
+    text-decoration: none;
+    background: $dark-color;
+    z-index: 2;
+
+    .u-arrow {
+      position: absolute;
+      display: inline-block;
+      width: 48px;
+      height: 2px;
+      top: 50%;
+      right: 0;
+      transform: translateY(-50%);
+      background: $white-color;
+      opacity: 0;
+      transition: all 0.5s ease-in-out;
+      z-index: 1;
+
+      &:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 15px;
+        height: 2px;
+        background: $white-color;
+        transform: rotate(0);
+        transition: all 0.8s ease-in-out;
+      }
+      &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 15px;
+        height: 2px;
+        background: $white-color;
+        transform: rotate(0);
+        animation-delay: 0.5s;
+        transition: all 0.8s ease-in-out;
+      }
+    }
+
+    &:hover .u-arrow {
+      opacity: 1;
+      right: -80px;
+    }
+
+
+    &:hover .u-arrow:after {
+      top: 6px;
+      right: -1px;
+      transform: rotate(-45deg);
+    }
+
+    &:hover .u-arrow:before {
+      top: -6px;
+      right: -1px;
+      transform: rotate(45deg);
+    }
+
   }
 
   &__close {
@@ -116,10 +181,14 @@ $white-color: #FFFFFF;
       width: 25px;
       height: 2px;
       background: $white-color;
+      transition: all 0.3s ease-in-out;
     }
 
     &:after { transform: rotate(45deg) }
     &:before { transform: rotate(-45deg) }
+
+    &:hover:after { transform: rotate(0) }
+    &:hover:before { transform: rotate(0) }
 
   }
 

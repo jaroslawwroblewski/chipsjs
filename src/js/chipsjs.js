@@ -40,7 +40,14 @@
 
                 var $body = $('body'),
                     menu = $element.clone(),
-                    title = '<p class="chipsjs__title">' + $title.text() + '</p>';
+                    //title = '<p class="chipsjs__title">' + $title.text() + '</p>';
+                    title = $title.clone();
+
+                title = title
+                        .attr('href', $title.attr('data-href'))
+                        .removeAttr('data-href')
+                        .addClass('chipsjs__title')
+                        .append('<span class="u-arrow"></span>');
 
 
                 $body.find(self.options.menu + ' ' + self.options.container).html('');
@@ -59,7 +66,10 @@
 
             var buildMenu = function () {
                 $('body').append(self.options.appendHtml);
-                attachClosekHandler($('body').find(self.options.close));
+                var closeBtn = $('body').find(self.options.close);
+
+                attachClosekHandler(closeBtn);
+                attachEsckHandler(closeBtn);
             };
 
 
@@ -78,6 +88,15 @@
             var attachClosekHandler = function($elements) {
                 $elements.on('click.chipsjs', function(event) {
                     hideSelectedMenu();
+                });
+            };
+
+
+            var attachEsckHandler = function($elements) {
+                $elements.on('keyup.chipsjs', function(event) {
+                    if (event.keyCode == 27) {
+                        hideSelectedMenu();
+                    }
                 });
             };
 
