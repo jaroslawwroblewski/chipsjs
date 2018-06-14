@@ -139,8 +139,7 @@ header .github img {
 
 .chipsjs-theme__home,
 .chipsjs-theme__usage,
-.chipsjs-theme__example,
-.chipsjs-theme__documentation{
+.chipsjs-theme__example {
     height: 100vh;
 }
 
@@ -187,3 +186,11 @@ header .github img {
 }
 
 
+footer {
+    text-align: center;
+    padding: 50px 0 ;
+}
+
+footer p, footer a {
+    color: #ffffff;
+}

@@ -52,15 +52,24 @@
 
                 $body.find(self.options.menu + ' ' + self.options.container).html('');
                 $body.find(self.options.menu + ' ' + self.options.container).append(title).append(menu.css('display', 'block'));
-                $body.find(self.options.wrapper).css({display: 'block', opacity: 0}).addClass(self.options.animation);
+                $body.find(self.options.wrapper).css({display: 'block', opacity: 0});
+                setTimeout( function() {
+                    $body.find(self.options.wrapper).addClass(self.options.animationIn);
+                }, 50);
                 $body.find(self.options.close).focus();
 
             };
 
             var hideSelectedMenu = function () {
-                $('body').find(self.options.menu + ' ' + self.options.container).html('');
-                $('body').find(self.options.wrapper).removeClass(self.options.animation).hide();
-                $(state.currentLink).focus();
+                var $wrapper = $('body').find(self.options.wrapper);
+                $wrapper.removeClass(self.options.animationIn);
+                $wrapper.addClass(self.options.animationOut);
+                setTimeout( function() {
+                    $wrapper.removeClass(self.options.animationOut);
+                    $wrapper.hide();
+                    $('body').find(self.options.menu + ' ' + self.options.container).html('');
+                    $(state.currentLink).focus();
+                }, self.options.animationDelay);
             };
 
 
@@ -137,7 +146,9 @@
 
     $.fn.chipsjs.default = {
         dataType: 'html',
-        animation: 'bounceIn',
+        animationIn: 'swing-in-top-fwd',
+        animationOut: 'swing-out-top-fwd',
+        animationDelay: 500,
         ul: '.chipsjs__ul',
         li: '.chipsjs__li',
         ulNested: '.chipsjs__ul-nested',
