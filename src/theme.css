@@ -75,6 +75,27 @@ ul li {
     display: inline-block;
 }
 
+pre, code {
+    margin: 0;
+    padding: 0;
+}
+
+pre {
+    padding: 5px 25px;
+    background: #fff;
+    border: 1px solid #ccc
+}
+
+code {
+    font-size: 1rem;
+}
+
+h3, .h3 {
+    font-size: 1.6rem;
+    font-weight: 300;
+}
+
+
 .chipsjs-theme {
     position: relative;
 }
