@@ -73,12 +73,18 @@
             };
 
 
+            var showMobileMenu = function () {
+                $(self.options.ul).slideToggle('slow');
+            };
+
+
             var buildMenu = function () {
                 $('body').append(self.options.appendHtml);
                 var closeBtn = $('body').find(self.options.close);
 
                 attachClosekHandler(closeBtn);
                 attachEsckHandler(closeBtn);
+                attachMobileHandler($(self.options.mobileTrigger));
             };
 
 
@@ -106,6 +112,12 @@
                     if (event.keyCode == 27) {
                         hideSelectedMenu();
                     }
+                });
+            };
+
+            var attachMobileHandler = function($elements) {
+                $elements.on('click.chipsjs', function(event) {
+                    showMobileMenu();
                 });
             };
 
@@ -149,6 +161,7 @@
         animationIn: 'swing-in-top-fwd',
         animationOut: 'swing-out-top-fwd',
         animationDelay: 500,
+        nav: '.chipsjs',
         ul: '.chipsjs__ul',
         li: '.chipsjs__li',
         ulNested: '.chipsjs__ul-nested',
@@ -156,6 +169,7 @@
         close: '.chipsjs__close',
         menu: '.chipsjs__menu',
         container: '.container',
+        mobileTrigger: '.chipsjs__trigger',
         addTitle: true,
         appendHtml: '<div class="chipsjs__wrapper"><button class="chipsjs__close"><span class="u-acc-hide">Close</span></button><div class="chipsjs__menu"><div class="container"></div></div></div>'
     };

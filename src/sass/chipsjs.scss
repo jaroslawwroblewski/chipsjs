@@ -10,21 +10,57 @@ $white-color: #FFFFFF;
 
 @import 'animation';
 
+// Helpers
+.u-acc-hide {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  border: 0;
+}
+
+.u-position-relative {
+  position: relative;
+}
+
 // Style
 
 .chipsjs {
   display: block;
   background: $gray-color;
 
+  @media all and (max-width:786px) {
+    position: relative;
+  }
+
   &__ul {
     width: 100%;
     list-style-type: none;
     margin: 0;
     padding: 0;
+
+    @media all and (max-width:786px) {
+      display: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: $gray-color;
+      text-align: center;
+      z-index: 1000;
+    }
   }
 
   &__li {
     display: inline-block;
+
+    @media all and (max-width:786px) {
+      display: block;
+      width: 100%;
+    }
 
     a {
       display: inline-block;
@@ -55,6 +91,9 @@ $white-color: #FFFFFF;
       width: 25%;
       padding-right: 15px;
       box-sizing: border-box;
+      @media all and (max-width:786px) {
+        width: 50%;
+      }
 
       a {
         color: $white-color;
@@ -90,6 +129,12 @@ $white-color: #FFFFFF;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+
+    @media all and (max-width:786px) {
+      left: auto;
+      transform: translateY(-50%);
+      padding: 0 25px;
+    }
   }
 
   &__title {
@@ -189,6 +234,59 @@ $white-color: #FFFFFF;
 
     &:hover:after { transform: rotate(0) }
     &:hover:before { transform: rotate(0) }
+
+  }
+
+  &__trigger {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: none;
+    border: none;
+    box-shadow: none;
+
+    &-icon {
+      position: relative;
+      display: block;
+      width: 25px;
+      height: 2px;
+      margin: 10px;
+      background: $dark-color;
+
+      &:after, &:before {
+        content: '';
+        position: absolute;
+        width: 25px;
+        height: 2px;
+        background: $dark-color;
+        transform: rotate(0);
+        transition: all 0.3s ease-in-out;
+      }
+
+      &:after {
+        top: -8px;
+        left: 0;
+      }
+      &:before {
+        top: 8px;
+        left: 0;
+      }
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &:hover .chipsjs__trigger-icon:after,
+    &:hover .chipsjs__trigger-icon:before {
+      top: 0;
+      transform: rotate(-90deg);
+    }
+
+    @media all and (max-width:786px) {
+      display: block;
+    }
 
   }
 

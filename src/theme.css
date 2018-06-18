@@ -22,6 +22,10 @@
     padding-bottom: 100px;
 }
 
+.u-position-relative {
+    position: relative;
+}
+
 .container {
     padding-right: 15px;
     padding-left: 15px;
@@ -83,11 +87,19 @@ pre, code {
 pre {
     padding: 5px 25px;
     background: #fff;
-    border: 1px solid #ccc
+    border: 1px solid #eee;
 }
 
 code {
     font-size: 1rem;
+}
+
+@media all and (max-width:786px) {
+    code {
+        overflow: scroll;
+        width: 100%;
+        display: block;
+    }
 }
 
 h3, .h3 {
@@ -177,7 +189,15 @@ header .github img {
 
 
 .chipsjs-theme__example {
+    position: relative;
     background: #ffffff;
+}
+
+@media all and (max-width:786px) {
+    .chipsjs-theme__example .u-title-h2 {
+        font-size: 2rem;
+        margin-bottom: 25px;
+    }
 }
 
 .chipsjs-theme__usage,
