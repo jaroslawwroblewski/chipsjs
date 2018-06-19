@@ -73,7 +73,8 @@
             };
 
 
-            var showMobileMenu = function () {
+            var showMobileMenu = function ($element) {
+                $element.find('.chipsjs__trigger-icon').toggleClass('active');
                 $(self.options.ul).slideToggle('slow');
             };
 
@@ -85,6 +86,14 @@
                 attachClosekHandler(closeBtn);
                 attachEsckHandler(closeBtn);
                 attachMobileHandler($(self.options.mobileTrigger));
+            };
+
+            var mobileSupport = function () {
+
+                if (window.matchMedia('all and (max-width:786px)').matches) {
+                    alert('mobile');
+                }
+
             };
 
 
@@ -117,7 +126,7 @@
 
             var attachMobileHandler = function($elements) {
                 $elements.on('click.chipsjs', function(event) {
-                    showMobileMenu();
+                    showMobileMenu($(this));
                 });
             };
 
@@ -125,6 +134,7 @@
             this.run = function() {
                 buildMenu();
                 attachClickHandler(self.$elem.find('[data-href]'));
+                mobileSupport();
             }
         }
 

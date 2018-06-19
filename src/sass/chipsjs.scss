@@ -217,6 +217,7 @@ $white-color: #FFFFFF;
     box-shadow: none;
     cursor: pointer;
     outline: none !important;
+    z-index: 2;
 
     &:after, &:before{
       content: '';
@@ -271,6 +272,13 @@ $white-color: #FFFFFF;
       &:before {
         top: 8px;
         left: 0;
+      }
+
+      &.active {
+        &:after, &:before {
+          top: 0 !important;
+          transform: rotate(0) !important;
+        }
       }
     }
 

@@ -57,7 +57,12 @@
     margin-top: 0;
     margin-bottom: 100px;
 }
-
+@media all and (max-width:786px) {
+    .u-title-h2 {
+        font-size: 2rem;
+        margin-bottom: 25px;
+    }
+}
 
 /* Style */
 
@@ -194,8 +199,16 @@ header .github img {
 }
 
 @media all and (max-width:786px) {
+
+
+    .chipsjs-theme__example-content {
+        top: auto;
+        transform: translate(0);
+        padding: 50px 0;
+        box-sizing: border-box;
+    }
+
     .chipsjs-theme__example .u-title-h2 {
-        font-size: 2rem;
         margin-bottom: 25px;
     }
 }
