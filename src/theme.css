@@ -97,15 +97,11 @@ pre {
 
 code {
     font-size: 1rem;
+    overflow: scroll;
+    width: 100%;
+    display: block;
 }
 
-@media all and (max-width:786px) {
-    code {
-        overflow: scroll;
-        width: 100%;
-        display: block;
-    }
-}
 
 h3, .h3 {
     font-size: 1.6rem;
@@ -155,12 +151,10 @@ header .github img {
 }
 
 .chipsjs-theme__home,
-.chipsjs-theme__usage,
 .chipsjs-theme__example {
     height: 100vh;
 }
 
-.chipsjs-theme__usage-content,
 .chipsjs-theme__home-content,
 .chipsjs-theme__example-content{
     position: relative;
@@ -190,6 +184,14 @@ header .github img {
     font-size: 2rem;
     font-weight: 300;
     color: #fff;
+}
+
+.chipsjs-theme__usage {
+    height: auto;
+}
+
+.chipsjs-theme__usage-content {
+
 }
 
 

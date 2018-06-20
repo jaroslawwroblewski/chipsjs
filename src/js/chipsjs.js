@@ -38,6 +38,9 @@
 
             var showSelectedMenu = function ($element, $title) {
 
+                $title.attr('aria-expanded', true);
+                $title.siblings('ul').attr('aria-hidden', false);
+
                 var $body = $('body'),
                     menu = $element.clone(),
                     //title = '<p class="chipsjs__title">' + $title.text() + '</p>';
@@ -70,6 +73,9 @@
                     $('body').find(self.options.menu + ' ' + self.options.container).html('');
                     $(state.currentLink).focus();
                 }, self.options.animationDelay);
+
+                $(state.currentLink).attr('aria-expanded', false);
+                $(state.currentLink).siblings('ul').attr('aria-hidden', true);
             };
 
 
@@ -92,6 +98,8 @@
 
                 if (window.matchMedia('all and (max-width:786px)').matches) {
                     alert('mobile');
+
+
                 }
 
             };

@@ -39,7 +39,7 @@
             <div class="chipsjs-theme__home-content">
                 <img src="src/img/chips_image.png" alt="chips image">
                 <p class="chipsjs-theme__home-content-h1">chips.js</p>
-                <h2>Responsive fullscreen navigation menu</h2>
+                <h2>Responsive and Accessible (WCAG 2.0) fullscreen navigation menu!</h2>
             </div>
         </section>
         <section id="usage" class="chipsjs-theme__usage">
@@ -69,6 +69,59 @@
 &lt;/script>
     </code>
 </pre>
+                        <h3>HTML (example):</h3>
+
+<pre>
+    <code>
+&lt;button class="chipsjs__trigger" aria-expanded="false" aria-controls="menu-list" aria-label="show or hide menu">
+    &lt;span class="chipsjs__trigger-icon">&lt;/span>
+&lt;/button>
+
+&lt;nav class="chipsjs">
+    &lt;ul id="menu-list" class="chipsjs__ul" role="menubar">
+
+        &lt;li class="chipsjs__li" role="menuitem">
+            &lt;a href="#" aria-haspopup="false" data-href="http://example.com/home">Home&lt;/a>
+        &lt;/li>
+
+        &lt;li class="chipsjs__li" role="menuitem">
+            &lt;a href="#" aria-haspopup="true" aria-expanded="false" data-href="http://example.com/about-us">Vegetables&lt;/a>
+            &lt;ul class="chipsjs__ul-nested" role="menu" aria-hidden="true">
+                &lt;li class="chipsjs__li" role="menuitem">&lt;a href="#">Potato&lt;/a>&lt;/li>
+                &lt;li class="chipsjs__li" role="menuitem">&lt;a href="#">Tomato&lt;/a>&lt;/li>
+                &lt;li class="chipsjs__li" role="menuitem">&lt;a href="#">Bean&lt;/a>&lt;/li>
+                ...
+            &lt;/ul>
+        &lt;/li>
+
+        &lt;li class="chipsjs__li" role="menuitem">
+            &lt;a href="#" aria-haspopup="true" aria-expanded="false" data-href="http://example.com/blog">Frruit&lt;/a>
+            &lt;ul class="chipsjs__ul-nested" role="menu" aria-hidden="true">
+                &lt;li class="chipsjs__li" role="menuitem">&lt;a href="#">Apple&lt;/a>&lt;/li>
+                &lt;li class="chipsjs__li" role="menuitem">&lt;a href="#">Banana&lt;/a>&lt;/li>
+                &lt;li class="chipsjs__li" role="menuitem">&lt;a href="#">Orange&lt;/a>&lt;/li>
+                ...
+            &lt;/ul>
+        &lt;/li>
+
+        &lt;li class="chipsjs__li" role="menuitem">
+            &lt;a href="#" aria-haspopup="true" aria-expanded="false" data-href="http://example.com/shop">Clothes&lt;/a>
+            &lt;ul class="chipsjs__ul-nested" role="menu" aria-hidden="true">
+                &lt;li class="chipsjs__li" role="menuitem">&lt;a href="#">Coat&lt;/a>&lt;/li>
+                &lt;li class="chipsjs__li" role="menuitem">&lt;a href="#">Dress&lt;/a>&lt;/li>
+                &lt;li class="chipsjs__li" role="menuitem">&lt;a href="#">Hat&lt;/a>&lt;/li>
+                ...
+            &lt;/ul>
+        &lt;/li>
+
+        &lt;li class="chipsjs__li" role="menuitem" tabindex="0">
+            &lt;a href="#" aria-haspopup="false" data-href="http://example.com/contact">Contact&lt;/a>
+        &lt;/li>
+    &lt;/ul>
+&lt;/nav>
+    </code>
+</pre>
+
                     </div>
                 </div>
             </div>
@@ -78,95 +131,86 @@
             <div class="chipsjs-theme__example-content">
                 <div class="container u-position-relative">
                     <h2 class="u-title-h2">Demo</h2>
-                    <button class="chipsjs__trigger">
+                    <button class="chipsjs__trigger" aria-expanded="false" aria-controls="menu-list" aria-label="show or hide menu">
                         <span class="chipsjs__trigger-icon"></span>
-                        <span class="u-acc-hide">Show Menu</span>
                     </button>
                     <nav class="chipsjs">
-                        <ul class="chipsjs__ul">
+                        <ul id="menu-list" class="chipsjs__ul" role="menubar">
 
-                            <li class="chipsjs__li">
-                                <a href="#" data-href="http://example.com/home">Home</a>
+                            <li class="chipsjs__li" role="menuitem">
+                                <a href="#" aria-haspopup="false" data-href="http://example.com/home">Home</a>
                             </li>
 
-                            <li class="chipsjs__li">
-                                <a href="#" data-href="http://example.com/about-us">Vegetables</a>
-                                <ul class="chipsjs__ul-nested">
-                                    <li class="chipsjs__li"><a href="#">Potato</a></li>
-                                    <li class="chipsjs__li"><a href="#">Tomato</a></li>
-                                    <li class="chipsjs__li"><a href="#">Bean</a></li>
-                                    <li class="chipsjs__li"><a href="#">Carrot</a></li>
-                                    <li class="chipsjs__li"><a href="#">Chilli</a></li>
-                                    <li class="chipsjs__li"><a href="#">Garlic</a></li>
-                                    <li class="chipsjs__li"><a href="#">Onion</a></li>
-                                    <li class="chipsjs__li"><a href="#">Broccoli</a></li>
-                                    <li class="chipsjs__li"><a href="#">Cabbage</a></li>
-                                    <li class="chipsjs__li"><a href="#">Courgette</a></li>
-                                    <li class="chipsjs__li"><a href="#">Cucumber</a></li>
-                                    <li class="chipsjs__li"><a href="#">Lettuce</a></li>
-                                    <li class="chipsjs__li"><a href="#">Pea</a></li>
-                                    <li class="chipsjs__li"><a href="#">Pepper</a></li>
-                                    <li class="chipsjs__li"><a href="#">Pumpkin</a></li>
-                                    <li class="chipsjs__li"><a href="#">Spinach</a></li>
-                                    <li class="chipsjs__li"><a href="#">Sweetcorn</a></li>
-                                    <li class="chipsjs__li"><a href="#">Aubergine</a></li>
-                                    <li class="chipsjs__li"><a href="#">Cauliflower</a></li>
-                                    <li class="chipsjs__li"><a href="#">Leek</a></li>
-                                    <li class="chipsjs__li"><a href="#">Parsley</a></li>
-                                    <li class="chipsjs__li"><a href="#">Radish</a></li>
+                            <li class="chipsjs__li" role="menuitem">
+                                <a href="#" aria-haspopup="true" aria-expanded="false" data-href="http://example.com/about-us">Vegetables</a>
+                                <ul class="chipsjs__ul-nested" role="menu" aria-hidden="true">
+                                    <li class="chipsjs__li" role="menuitem"><a href="#">Potato</a></li>
+                                    <li class="chipsjs__li" role="menuitem"><a href="#">Tomato</a></li>
+                                    <li class="chipsjs__li" role="menuitem"><a href="#">Bean</a></li>
+                                    <li class="chipsjs__li" role="menuitem"><a href="#">Carrot</a></li>
+                                    <li class="chipsjs__li" role="menuitem"><a href="#">Chilli</a></li>
+                                    <li class="chipsjs__li" role="menuitem"><a href="#">Garlic</a></li>
+                                    <li class="chipsjs__li" role="menuitem"><a href="#">Onion</a></li>
+                                    <li class="chipsjs__li" role="menuitem"><a href="#">Broccoli</a></li>
+                                    <li class="chipsjs__li" role="menuitem"><a href="#">Cabbage</a></li>
+                                    <li class="chipsjs__li" role="menuitem"><a href="#">Courgette</a></li>
+                                    <li class="chipsjs__li" role="menuitem"><a href="#">Cucumber</a></li>
+                                    <li class="chipsjs__li" role="menuitem"><a href="#">Lettuce</a></li>
+                                    <li class="chipsjs__li" role="menuitem"><a href="#">Pea</a></li>
+                                    <li class="chipsjs__li" role="menuitem"><a href="#">Pepper</a></li>
+                                    <li class="chipsjs__li" role="menuitem"><a href="#">Pumpkin</a></li>
+                                    <li class="chipsjs__li" role="menuitem"><a href="#">Spinach</a></li>
+                                    <li class="chipsjs__li" role="menuitem"><a href="#">Sweetcorn</a></li>
+                                    <li class="chipsjs__li" role="menuitem"><a href="#">Aubergine</a></li>
+                                    <li class="chipsjs__li" role="menuitem"><a href="#">Cauliflower</a></li>
+                                    <li class="chipsjs__li" role="menuitem"><a href="#">Leek</a></li>
+                                    <li class="chipsjs__li" role="menuitem"><a href="#">Parsley</a></li>
+                                    <li class="chipsjs__li" role="menuitem"><a href="#">Radish</a></li>
                                 </ul>
                             </li>
 
-                            <li class="chipsjs__li">
-                                <a href="#" data-href="http://example.com/blog">Frruit</a>
-                                <ul class="chipsjs__ul-nested">
-                                    <li class="chipsjs__li"><a href="#">Apple</a></li>
-                                    <li class="chipsjs__li"><a href="#">Banana</a></li>
-                                    <li class="chipsjs__li"><a href="#">Orange</a></li>
-                                    <li class="chipsjs__li"><a href="#">Grape</a></li>
-                                    <li class="chipsjs__li"><a href="#">Lemon</a></li>
-                                    <li class="chipsjs__li"><a href="#">Mango</a></li>
-                                    <li class="chipsjs__li"><a href="#">Grapefruit</a></li>
-                                    <li class="chipsjs__li"><a href="#">Pear</a></li>
-                                    <li class="chipsjs__li"><a href="#">Coconut</a></li>
-                                    <li class="chipsjs__li"><a href="#">Peach</a></li>
-                                    <li class="chipsjs__li"><a href="#">Pineapple</a></li>
-                                    <li class="chipsjs__li"><a href="#">Strawberry</a></li>
+                            <li class="chipsjs__li" role="menuitem">
+                                <a href="#" aria-haspopup="true" aria-expanded="false" data-href="http://example.com/blog">Frruit</a>
+                                <ul class="chipsjs__ul-nested" role="menu" aria-hidden="true">
+                                    <li class="chipsjs__li" role="menuitem"><a href="#">Apple</a></li>
+                                    <li class="chipsjs__li" role="menuitem"><a href="#">Banana</a></li>
+                                    <li class="chipsjs__li" role="menuitem"><a href="#">Orange</a></li>
+                                    <li class="chipsjs__li" role="menuitem"><a href="#">Grape</a></li>
+                                    <li class="chipsjs__li" role="menuitem"><a href="#">Lemon</a></li>
+                                    <li class="chipsjs__li" role="menuitem"><a href="#">Mango</a></li>
+                                    <li class="chipsjs__li" role="menuitem"><a href="#">Grapefruit</a></li>
+                                    <li class="chipsjs__li" role="menuitem"><a href="#">Pear</a></li>
+                                    <li class="chipsjs__li" role="menuitem"><a href="#">Coconut</a></li>
+                                    <li class="chipsjs__li" role="menuitem"><a href="#">Peach</a></li>
+                                    <li class="chipsjs__li" role="menuitem"><a href="#">Pineapple</a></li>
+                                    <li class="chipsjs__li" role="menuitem"><a href="#">Strawberry</a></li>
                                 </ul>
                             </li>
 
-                            <li class="chipsjs__li">
-                                <a href="#" data-href="http://example.com/shop">Clothes</a>
-                                <ul class="chipsjs__ul-nested">
-                                    <li class="chipsjs__li"><a href="#">Coat</a></li>
-                                    <li class="chipsjs__li"><a href="#">Dress</a></li>
-                                    <li class="chipsjs__li"><a href="#">Hat</a></li>
-                                    <li class="chipsjs__li"><a href="#">Jeans</a></li>
-                                    <li class="chipsjs__li"><a href="#">Shirt</a></li>
-                                    <li class="chipsjs__li"><a href="#">Shoe</a></li>
-                                    <li class="chipsjs__li"><a href="#">T-shirt</a></li>
-                                    <li class="chipsjs__li"><a href="#">Boot</a></li>
-                                    <li class="chipsjs__li"><a href="#">Trousers</a></li>
-                                    <li class="chipsjs__li"><a href="#">Jacket</a></li>
-                                    <li class="chipsjs__li"><a href="#">Jumper</a></li>
-                                    <li class="chipsjs__li"><a href="#">Pocket</a></li>
-                                    <li class="chipsjs__li"><a href="#">Suit</a></li>
-                                    <li class="chipsjs__li"><a href="#">Sweater</a></li>
-                                    <li class="chipsjs__li"><a href="#">Uniform</a></li>
-                                    <li class="chipsjs__li"><a href="#">Heel</a></li>
+                            <li class="chipsjs__li" role="menuitem">
+                                <a href="#" aria-haspopup="true" aria-expanded="false" data-href="http://example.com/shop">Clothes</a>
+                                <ul class="chipsjs__ul-nested" role="menu" aria-hidden="true">
+                                    <li class="chipsjs__li" role="menuitem"><a href="#">Coat</a></li>
+                                    <li class="chipsjs__li" role="menuitem"><a href="#">Dress</a></li>
+                                    <li class="chipsjs__li" role="menuitem"><a href="#">Hat</a></li>
+                                    <li class="chipsjs__li" role="menuitem"><a href="#">Jeans</a></li>
+                                    <li class="chipsjs__li" role="menuitem"><a href="#">Shirt</a></li>
+                                    <li class="chipsjs__li" role="menuitem"><a href="#">Shoe</a></li>
+                                    <li class="chipsjs__li" role="menuitem"><a href="#">T-shirt</a></li>
+                                    <li class="chipsjs__li" role="menuitem"><a href="#">Boot</a></li>
+                                    <li class="chipsjs__li" role="menuitem"><a href="#">Trousers</a></li>
+                                    <li class="chipsjs__li" role="menuitem"><a href="#">Jacket</a></li>
+                                    <li class="chipsjs__li" role="menuitem"><a href="#">Jumper</a></li>
+                                    <li class="chipsjs__li" role="menuitem"><a href="#">Pocket</a></li>
+                                    <li class="chipsjs__li" role="menuitem"><a href="#">Suit</a></li>
+                                    <li class="chipsjs__li" role="menuitem"><a href="#">Sweater</a></li>
+                                    <li class="chipsjs__li" role="menuitem"><a href="#">Uniform</a></li>
+                                    <li class="chipsjs__li" role="menuitem"><a href="#">Heel</a></li>
                                 </ul>
                             </li>
 
-                            <li class="chipsjs__li">
-                                <a href="#" data-href="http://example.com/contact">Contact</a>
-                                <ul class="chipsjs__ul-nested">
-                                    <li class="chipsjs__li">
-                                        <a href="#">Lorem ipsum</a>
-                                    </li>
-                                    <li class="chipsjs__li">
-                                        <a href="#">Lorem ipsum</a>
-                                    </li>
-                                </ul>
+                            <li class="chipsjs__li" role="menuitem" tabindex="0">
+                                <a href="#" aria-haspopup="false" data-href="http://example.com/contact">Contact</a>
                             </li>
 
                         </ul>
