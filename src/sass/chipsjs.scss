@@ -135,6 +135,8 @@ $white-color: #FFFFFF;
       transform: translateY(-50%);
       padding: 0 25px;
     }
+
+    // jeżeli ilosc elementow/ wysokosc jest wieksza to usunac translate i dodac overflow auto
   }
 
   &__title {

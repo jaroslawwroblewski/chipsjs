@@ -52,7 +52,7 @@
                         .addClass('chipsjs__title')
                         .append('<span class="u-arrow"></span>');
 
-
+                $body.css('overflow','hidden');
                 $body.find(self.options.menu + ' ' + self.options.container).html('');
                 $body.find(self.options.menu + ' ' + self.options.container).append(title).append(menu.css('display', 'block'));
                 $body.find(self.options.wrapper).css({display: 'block', opacity: 0});
@@ -74,6 +74,7 @@
                     $(state.currentLink).focus();
                 }, self.options.animationDelay);
 
+                $('body').css('overflow','auto');
                 $(state.currentLink).attr('aria-expanded', false);
                 $(state.currentLink).siblings('ul').attr('aria-hidden', true);
             };
@@ -97,7 +98,7 @@
             var mobileSupport = function () {
 
                 if (window.matchMedia('all and (max-width:786px)').matches) {
-                    alert('mobile');
+                    //alert('mobile');
 
 
                 }
