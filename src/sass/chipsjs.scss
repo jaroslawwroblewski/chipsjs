@@ -102,6 +102,10 @@ $white-color: #FFFFFF;
         font-size: 1.2rem;
         box-sizing: border-box;
 
+        @media all and (max-width:786px) {
+          font-size: 1rem;
+        }
+
         &:hover, &:focus {
           border-bottom: 2px solid $white-color;
           outline: none !important;
@@ -133,22 +137,31 @@ $white-color: #FFFFFF;
     @media all and (max-width:786px) {
       left: auto;
       transform: translateY(-50%);
-      padding: 0 25px;
+      padding: 0 15px;
     }
-
-    // jeżeli ilosc elementow/ wysokosc jest wieksza to usunac translate i dodac overflow auto
   }
 
   &__title {
     position: relative;
     display: inline-block;
-    margin-top: 0;
-    margin-bottom: 25px;
+    margin: {
+      top: 0;
+      bottom: 25px;
+    }
     color: $white-color;
     font-size: 2rem;
     text-decoration: none;
     background: $dark-color;
     z-index: 2;
+
+    @media all and (max-width:786px) {
+      position: fixed;
+      width: 100%;
+      margin: 0;
+      font-size: 1.4rem;
+      padding: 20px 0;
+      z-index: 1;
+    }
 
     .u-arrow {
       position: absolute;
@@ -187,6 +200,14 @@ $white-color: #FFFFFF;
         transition: all 0.8s ease-in-out;
       }
     }
+
+    & ~ .chipsjs__ul-nested {
+      @media all and (max-width:786px) {
+        float: left;
+        margin-top: 70px;
+      }
+    }
+
 
     &:hover .u-arrow {
       opacity: 1;
@@ -298,6 +319,14 @@ $white-color: #FFFFFF;
       display: block;
     }
 
+  }
+
+  &__reset-transform {
+    overflow-y: auto;
+    height: 100%;
+    transform: none;
+    top: auto;
+    -webkit-overflow-scrolling: touch;
   }
 
 }

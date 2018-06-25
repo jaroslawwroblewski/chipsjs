@@ -52,10 +52,15 @@
                         .addClass('chipsjs__title')
                         .append('<span class="u-arrow"></span>');
 
-                $body.css('overflow','hidden');
+                $body.css({overflow: 'hidden', position: 'fixed'});
                 $body.find(self.options.menu + ' ' + self.options.container).html('');
                 $body.find(self.options.menu + ' ' + self.options.container).append(title).append(menu.css('display', 'block'));
                 $body.find(self.options.wrapper).css({display: 'block', opacity: 0});
+
+                if (window.matchMedia(self.options.mediaQuery).matches) {
+                    checkBrowserViewport();
+                }
+
                 setTimeout( function() {
                     $body.find(self.options.wrapper).addClass(self.options.animationIn);
                 }, 50);
@@ -74,7 +79,7 @@
                     $(state.currentLink).focus();
                 }, self.options.animationDelay);
 
-                $('body').css('overflow','auto');
+                $('body').css({overflow: 'auto', position: 'static'});
                 $(state.currentLink).attr('aria-expanded', false);
                 $(state.currentLink).siblings('ul').attr('aria-hidden', true);
             };
@@ -97,12 +102,20 @@
 
             var mobileSupport = function () {
 
-                if (window.matchMedia('all and (max-width:786px)').matches) {
-                    //alert('mobile');
+                if (window.matchMedia('all and (max-width:786px)').matches) {}
+            };
 
+            var checkBrowserViewport = function () {
 
+                var $menu = $(self.options.wrapper + ' ' + self.options.menu),
+                    wrapperHeight = $menu.height(),
+                    windowHeight = $(window).height();
+
+                if(wrapperHeight >= windowHeight || (wrapperHeight < windowHeight && wrapperHeight > (windowHeight - self.options.mobileSensitivity))) {
+                    $menu.addClass(self.options.mobileReset);
+                } else {
+                    $menu.removeClass(self.options.mobileReset);
                 }
-
             };
 
 
@@ -188,7 +201,10 @@
         close: '.chipsjs__close',
         menu: '.chipsjs__menu',
         container: '.container',
+        mediaQuery: 'all and (max-width:786px)',
         mobileTrigger: '.chipsjs__trigger',
+        mobileReset: 'chipsjs__reset-transform',
+        mobileSensitivity: 80,
         addTitle: true,
         appendHtml: '<div class="chipsjs__wrapper"><button class="chipsjs__close"><span class="u-acc-hide">Close</span></button><div class="chipsjs__menu"><div class="container"></div></div></div>'
     };
