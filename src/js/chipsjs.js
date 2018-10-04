@@ -20,9 +20,9 @@
 }(function ($) {
 
     'use strict';
-    var ChipsJS = (function() {
+    var chipsJs = (function() {
 
-        function ChipsJS() {
+        function chipsJs() {
 
             var self = this;
 
@@ -66,6 +66,8 @@
                 }, 50);
                 $body.find(self.options.close).focus();
 
+                attachClickNestedHandler($('body').find(self.options.wrapper + ' a'));
+
             };
 
             var hideSelectedMenu = function () {
@@ -82,6 +84,11 @@
                 $('body').css({overflow: 'auto', position: 'static'});
                 $(state.currentLink).attr('aria-expanded', false);
                 $(state.currentLink).siblings('ul').attr('aria-hidden', true);
+
+
+                var closeBtn = $('body').find(self.options.close);
+                detachHandler(closeBtn);
+                detachHandler(self.$elem.find(self.options.ulNested + ' a'));
             };
 
 
@@ -95,9 +102,8 @@
                 $('body').append(self.options.appendHtml);
                 var closeBtn = $('body').find(self.options.close);
 
-                attachClosekHandler(closeBtn);
-                attachEsckHandler(closeBtn);
-                attachMobileHandler($(self.options.mobileTrigger));
+                attachCloseHandler(closeBtn);
+                attachEscHandler(closeBtn);
             };
 
             var mobileSupport = function () {
@@ -131,14 +137,14 @@
                 });
             };
 
-            var attachClosekHandler = function($elements) {
+            var attachCloseHandler = function($elements) {
                 $elements.on('click.chipsjs', function(event) {
                     hideSelectedMenu();
                 });
             };
 
 
-            var attachEsckHandler = function($elements) {
+            var attachEscHandler = function($elements) {
                 $elements.on('keyup.chipsjs', function(event) {
                     if (event.keyCode == 27) {
                         hideSelectedMenu();
@@ -152,28 +158,39 @@
                 });
             };
 
+            var attachClickNestedHandler = function($elements){
+                $elements.on('click.chipsjs', function(event) {
+                    hideSelectedMenu();
+                });
+            };
+
+            var detachHandler = function($elements) {
+                //$elements.off('.chipsjs');
+            };
+
 
             this.run = function() {
                 buildMenu();
                 attachClickHandler(self.$elem.find('[data-href]'));
+                attachMobileHandler($(self.options.mobileTrigger));
                 mobileSupport();
-            }
+            };
         }
 
-        ChipsJS.prototype.init = function (options, elem) {
+        chipsJs.prototype.init = function (options, elem) {
             this.$elem = $(elem);
             this.options = $.extend({}, $.fn.chipsjs.default, options);
 
             return this.options;
         };
 
-        return ChipsJS;
+        return chipsJs;
 
     })();
 
     $.fn.chipsjs = function (method, options) {
         return this.each(function () {
-            var plugin = new ChipsJS();
+            var plugin = new chipsJs();
 
             if (plugin.hasOwnProperty(method)) {
                 plugin.init(options, this);
@@ -183,7 +200,7 @@
                 plugin.init(options, this);
                 return plugin.run();
             } else {
-                $.error('Method ' + method + ' does not exist in ChipsJS');
+                $.error('Method ' + method + ' does not exist in chipsJs');
             }
         });
     };
@@ -206,9 +223,11 @@
         mobileReset: 'chipsjs__reset-transform',
         mobileSensitivity: 80,
         addTitle: true,
-        appendHtml: '<div class="chipsjs__wrapper"><button class="chipsjs__close"><span class="u-acc-hide">Close</span></button><div class="chipsjs__menu"><div class="container"></div></div></div>'
+        appendHtml: '<div class="chipsjs__wrapper">' +
+                    '<button class="chipsjs__close"><span class="u-acc-hide">Close</span></button>' +
+                    '<div class="chipsjs__menu"><div class="container"></div></div></div>'
     };
 
-    $.fn.chipsjs.ChipsJS = ChipsJS;
+    $.fn.chipsjs.chipsJs = chipsJs;
 
 }));
