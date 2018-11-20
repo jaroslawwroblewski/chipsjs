@@ -7,8 +7,8 @@
 
 ## Configuration
 
-```json
-{
+```javascript
+$(element).chipsjs({
     dataType: 'html',
     animationIn: 'swing-in-top-fwd',
     animationOut: 'swing-out-top-fwd',
