@@ -3,7 +3,7 @@
 
 ## Responsive fullscreen navigation menu
 
-This is simple and modern fullscreen navigation supported DOM and JSON. <br/>
+This is Responsive and Accessible (WCAG 2.0) fullscreen navigation menu! <br/>
 If you want check DEMO please click [HERE](http://www.d3sign.pl/chipsjs/)
 
 ![alt text](src/img/image.png)
