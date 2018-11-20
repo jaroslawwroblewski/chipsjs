@@ -223,6 +223,32 @@
                 <div class="u-padding-top-xl u-padding-xl">
                     <h2 class="u-title-h2">Documentation</h2>
                     <h3>Configuration</h3>
+<pre>
+<code>
+$(element).chipsjs({
+    dataType: 'html',
+    animationIn: 'swing-in-top-fwd',
+    animationOut: 'swing-out-top-fwd',
+    animationDelay: 500,
+    nav: '.chipsjs',
+    ul: '.chipsjs__ul',
+    li: '.chipsjs__li',
+    ulNested: '.chipsjs__ul-nested',
+    wrapper: '.chipsjs__wrapper',
+    close: '.chipsjs__close',
+    menu: '.chipsjs__menu',
+    container: '.container',
+    mediaQuery: 'all and (max-width:786px)',
+    mobileTrigger: '.chipsjs__trigger',
+    mobileReset: 'chipsjs__reset-transform',
+    mobileSensitivity: 80,
+    addTitle: true,
+    appendHtml: '<div class="chipsjs__wrapper">' +
+                '<button class="chipsjs__close"><span class="u-acc-hide">Close</span></button>' +
+                '<div class="chipsjs__menu"><div class="container"></div></div></div>'
+}
+</code>
+</pre>
                     <h3>Methods</h3>
                     <h3>Callbacks</h3>
                 </div>
