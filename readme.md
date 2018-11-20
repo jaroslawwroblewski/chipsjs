@@ -3,8 +3,8 @@
 
 ## Responsive fullscreen navigation menu
 
-This is simple and modern fullscreen navigation supported DOM and JSON.
-If you want check DEMO please click HERE [HERE](http://d3sign.pl/chipsjs)
+This is simple and modern fullscreen navigation supported DOM and JSON. <br/>
+If you want check DEMO please click HERE [HERE](http://d3sign.pl/chipsjs/)
 
 ![alt text](src/img/image.png)
 
